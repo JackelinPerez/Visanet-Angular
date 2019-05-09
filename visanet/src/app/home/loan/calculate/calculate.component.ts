@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculateComponent implements OnInit {
   objInfLoan = {};
-  amount = 0;
+  amount = 10000;
 
   constructor() { }
 
@@ -28,11 +28,11 @@ export class CalculateComponent implements OnInit {
     }
   }
   reduceQuantity(){
-/*     if (this.amount >= 1000) return this.amount -= 1000;
- */  }
+if (this.amount > 1000) return this.amount -= 1000;
+ }
   addQuantity(){
-/*     return this.amount += 1000;
- */  }
+if(this.amount < 50000) return this.amount += 1000;
+ }
   sendLoanData(){
     return this.objInfLoan;
   }
