@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoanComponent } from './home/loan/loan.component';
-import { ContactsNetworkComponent } from './home/loan/contacts-network/contacts-network.component';
+import { ContactsNetworkComponent } from './home/contacts-network/contacts-network.component';
 import { GrowthBusinessComponent } from './home/growth-business/growth-business.component';
 import { CalculateComponent } from './home/loan/calculate/calculate.component';
 import { EnterDataComponent } from './home/loan/enter-data/enter-data.component';
