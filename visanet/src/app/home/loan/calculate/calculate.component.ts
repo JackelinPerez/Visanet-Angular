@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalService } from 'src/shared/local.service';
 
 @Component({
   selector: 'app-calculate',
@@ -18,13 +19,13 @@ export class CalculateComponent implements OnInit {
     monthlyPayment: 933.33
   };
 
-  constructor() { }
+  constructor(private localService: LocalService) { }
 
   ngOnInit() {
-  }
+}
 
   calculateLoan() {
-    return parseInt(((this.amount + this.interest)/this.months).toFixed(2));
+    return parseFloat(((this.amount + this.interest)/this.months).toFixed(2));
   }
 
   onChange(value) {
@@ -54,6 +55,6 @@ this.paymentSummary();
  }
 
 sendLoanData(){
-    return this.objInfLoan;
+  this.localService.getLoanData(this.objInfLoan);
   }
 }
