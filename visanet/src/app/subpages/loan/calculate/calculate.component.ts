@@ -24,7 +24,7 @@ export class CalculateComponent implements OnInit {
   ngOnInit() {
 }
 
-  calculateLoan() {
+  calculateLoanData() {
     return parseFloat(((this.amount + this.interest)/this.months).toFixed(2));
   }
 
@@ -38,7 +38,7 @@ export class CalculateComponent implements OnInit {
     this.objInfLoan.amount = this.amount;
     this.objInfLoan.interest = this.interest;
     this.objInfLoan.months = this.months;
-    this.objInfLoan.monthlyPayment = this.calculateLoan();
+    this.objInfLoan.monthlyPayment = this.calculateLoanData();
   }
 
 reduceQuantity(){
