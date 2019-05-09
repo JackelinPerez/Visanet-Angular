@@ -12,19 +12,20 @@ import { EnterDataComponent } from './home/loan/enter-data/enter-data.component'
 import { CompareComponent } from './home/loan/compare/compare.component';
 import { RequestLoanComponent } from './home/loan/request-loan/request-loan.component';
 import { GetLoanComponent } from './home/loan/get-loan/get-loan.component';
+import { NavbarComponent } from './home/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoanComponent,
-    ContactsNetworkComponent,
     GrowthBusinessComponent,
     CalculateComponent,
     EnterDataComponent,
     CompareComponent,
     RequestLoanComponent,
-    GetLoanComponent
+    GetLoanComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
