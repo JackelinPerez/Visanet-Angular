@@ -29,21 +29,22 @@
     <div class="mount">
       <label for="">¿Cuanto dinero necesitas?</label><br>
       <button (click)="addQuantity()">+</button>
-      <input name="amount" type="number" value="{{amount}}">
+      <input name="amount" type="number" value="{{amount}}"> 
       <button (click)="reduceQuantity()">-</button>
     </div>
     <div class="time">
       <label for="">¿Cuanto tiempo?</label><br>
-      <select name="" id="">
-        <option value="">12 Meses</option>
-        <option value="">24 Meses</option>
-        <option value="">36 Meses</option>
-        <option value="">48 Meses</option>
+      <select name="" id="" (change) = "onChange($event.target.value)" >
+        <option value="12">12 Meses</option>
+        <option value="24">24 Meses</option>
+        <option value="36">36 Meses</option>
+        <option value="48">4 Años</option>
+        <option value="60">5 Años</option>
       </select>
     </div>
     <div class="cuota">
-      <label for="">Debo pagar</label><br>
-      <label for="">S/933.33</label><br>
+      <label for="">Debo pagar </label><br>
+      <label for="">{{calculateLoan() | currency:'S/ '}}</label><br>
       <label for="">Mensuales</label>
     </div>
     <div class="summary">
@@ -51,19 +52,21 @@
         <section class="table-resumen">
           <div>
             <label for="">Prestamo</label><br>
-            <label for="">10,000</label>
+            <label for="">{{objInfLoan.amount  | number:'2.'}}</label>
           </div>
           <div class="signos">+</div>
           <div>
               <label for="">Intereses</label><br>
-              <label for="">1,200</label>
+              <label for="">{{objInfLoan.interest | number:'2.'}}</label>
           </div>
           <div class="signos">=</div>
           <div>
               <label for="">Total a pagar</label><br>
-              <label for="">11,200</label>
+              <label for="">{{objInfLoan.amount + objInfLoan.interest | number:'2.'}}</label>
           </div>
+          <button (click)= "sendLoanData()"> Solicitar préstamo</button>
         </section>
       </div>
   </section>
   
+

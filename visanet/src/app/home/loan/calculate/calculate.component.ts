@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalService } from 'src/shared/local.service';
 
 @Component({
   selector: 'app-calculate',
@@ -6,34 +7,54 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculate.component.sass']
 })
 export class CalculateComponent implements OnInit {
-  objInfLoan = {};
-  amount = 10000;
 
-  constructor() { }
+  amount = 10000;
+  months = 12;
+  interest = 1200;
+
+  objInfLoan = {
+    amount: this.amount,
+    interest: this.interest,
+    months: this.months,
+    monthlyPayment: 933.33
+  };
+
+  constructor(private localService: LocalService) { }
 
   ngOnInit() {
-    console.log(this.paymentSummary(10000, 12));  
+}
+
+  calculateLoan() {
+    return parseFloat(((this.amount + this.interest)/this.months).toFixed(2));
   }
 
-  calculateLoan(amount: number, months: number) {
-    return ((amount*(100+months))/(100*months)).toFixed(2);
-
+  onChange(value) {
+  this.months = value;
+  this.paymentSummary();
   }
 
-  paymentSummary(amount: number, months: number){
-    return {
-      loan: amount,
-      time: months,
-      totalPayment: (amount * (100 + months))/100
-    }
+  paymentSummary(){
+    this.interest = (this.amount*0.12)*(this.months/12);
+    this.objInfLoan.amount = this.amount;
+    this.objInfLoan.interest = this.interest;
+    this.objInfLoan.months = this.months;
+    this.objInfLoan.monthlyPayment = this.calculateLoan();
   }
-  reduceQuantity(){
-if (this.amount > 1000) return this.amount -= 1000;
+
+reduceQuantity(){
+if (this.amount > 1000) {    
+ this.amount -= 1000;
+ this.paymentSummary();
  }
+}
   addQuantity(){
-if(this.amount < 50000) return this.amount += 1000;
+if(this.amount < 50000) {
+this.amount += 1000;
+this.paymentSummary();
+}
  }
-  sendLoanData(){
-    return this.objInfLoan;
+
+sendLoanData(){
+  this.localService.getLoanData(this.objInfLoan);
   }
 }
