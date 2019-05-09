@@ -7,28 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculateComponent implements OnInit {
   objInfLoan = {};
+  amount = 0;
+
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.calculateLoan(10000, 12));  
+    console.log(this.paymentSummary(10000, 12));  
   }
+
   calculateLoan(amount: number, months: number) {
-    return (amount * (100 + months))/months;
+    return ((amount*(100+months))/(100*months)).toFixed(2);
+
   }
 
   paymentSummary(amount: number, months: number){
     return {
       loan: amount,
       time: months,
-      totalPayment: amount * (100 + months)
+      totalPayment: (amount * (100 + months))/100
     }
   }
-  reduceQuantity(amount:number){
-    if (amount >= 1000) return amount= amount - 1000;
-  }
-  addQuantity(amount:number){
-    return amount= amount + 1000;
-  }
+  reduceQuantity(){
+/*     if (this.amount >= 1000) return this.amount -= 1000;
+ */  }
+  addQuantity(){
+/*     return this.amount += 1000;
+ */  }
   sendLoanData(){
     return this.objInfLoan;
   }
