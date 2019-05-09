@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalService } from 'src/shared/local.service';
-
+ 
 @Component({
   selector: 'app-calculate',
   templateUrl: './calculate.component.html',
@@ -24,7 +24,7 @@ export class CalculateComponent implements OnInit {
   ngOnInit() {
 }
 
-  calculateLoanData() {
+  calculateLoan() {
     return parseFloat(((this.amount + this.interest)/this.months).toFixed(2));
   }
 
@@ -38,7 +38,7 @@ export class CalculateComponent implements OnInit {
     this.objInfLoan.amount = this.amount;
     this.objInfLoan.interest = this.interest;
     this.objInfLoan.months = this.months;
-    this.objInfLoan.monthlyPayment = this.calculateLoanData();
+    this.objInfLoan.monthlyPayment = this.calculateLoan();
   }
 
 reduceQuantity(){
@@ -54,8 +54,12 @@ this.paymentSummary();
 }
  }
 
+
 sendLoanData(){
   this.localService.getLoanData(this.objInfLoan);
-  
+  this.localService.getStatusData({calculate: '✓', data: '2', compare: '3', request: '4', set:'5'});
+
   }
 }
+
+
