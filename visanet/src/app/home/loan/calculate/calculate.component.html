@@ -29,7 +29,7 @@
     <div class="mount">
       <label for="">¿Cuanto dinero necesitas?</label><br>
       <button (click)="addQuantity()">+</button>
-      <input name="amount" type="number" value="{{amount}}"> 
+      <span name="amount" type="number"> S/{{amount | number:'2.'}} </span>
       <button (click)="reduceQuantity()">-</button>
     </div>
     <div class="time">
@@ -64,7 +64,7 @@
               <label for="">Total a pagar</label><br>
               <label for="">{{objInfLoan.amount + objInfLoan.interest | number:'2.'}}</label>
           </div>
-          <button (click)= "sendLoanData()"> Solicitar préstamo</button>
+          <button routerLink= "/loan/enter-data" (click)= "sendLoanData()"> Solicitar préstamo</button>
         </section>
       </div>
   </section>

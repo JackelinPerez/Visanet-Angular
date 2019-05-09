@@ -56,5 +56,6 @@ this.paymentSummary();
 
 sendLoanData(){
   this.localService.getLoanData(this.objInfLoan);
+  
   }
 }
