@@ -1,42 +1,55 @@
-<section class="row info-emprededora">
-  <h2>INGRESA TUS DATOS</h2>
-  <div class="">
-    <div>
-        <input name="first-name" placeholder="Nombre">    
-    </div>
-    <div>
-      <input name="last-name" placeholder="Apellido">    
-    </div>
+<!-- <form (ngSubmit)="onSubmit(projectForm)" #projectForm="ngForm" class="form-horizontal"> -->
+<!-- <form #frm="ngForm" (submit)="onSubmit(frm)">
+  <input name="nameFirst" #nameFirst="ngModel"  placeholder="Nombre" required> -->
+  <!-- <input name="lastName" #lastName="ngModel"  placeholder="Apellido" required>
+  <input name="email" #email="ngModel"  placeholder="Email" required>
+  <input name="dni" #dni="ngModel" placeholder="DNI" required> -->
+  <!-- <input name="phone" #phone="ngModel" [(ngModel)]="service.formData.phone" placeholder="Teléfono" required>
+  <input name="ruc" #ruc="ngModel" [(ngModel)]="service.formData.ruc" placeholder="RUC" required>
+  <input name="password" #password="ngModel" [(ngModel)]="service.formData.password" type="password" placeholder="Contraseña" required> -->
+  <!-- <input  name="password" #password="ngModel" [(ngModel)]="service.formData.password" placeholder="Contraseña" required> -->
+  <!-- <label><input type="checkbox" name="isClient" [disabled]="form.invalid"> NO SOY CLIENTE VISANET</label> -->
+  <!-- <button> Solicitar</button>
+</form> -->
+ <form [formGroup]="frmData" autocomplete="off" (submit)="sendPersonalData(form)">
+  <div class="form-group">
+    <input type="text" id="nameFirst" placeholder="Nombre" class="form-control" formControlFirstnameFirstName="nameFirst">
+    <span *ngIf="frmData.controls['nameFirst'].touched && frmData.controls['nameFirst'].errors?.requered">Es un valor requerido</span>
   </div>
-
-  <div class="">
-    <div>
-        <input name="email" placeholder="Email">    
-    </div>
-    <div>
-      <input name="DNI" placeholder="DNI">    
-    </div>
+  <div class="form-group">
+    <input type="text" id="nameLast" placeholder="Apellido" class="form-control" formControlLastName="nameLast">
+    <span *ngIf="frmData.controls['nameLast'].touched && frmData.controls['nameLast'].errors?.requered">Es un valor requerido</span>
   </div>
-
-  <div class="">
-    <div>
-        <input name="phone" placeholder="Celular">    
-    </div>
-    <div>
-      <input name="RUC" placeholder="RUC">    
-    </div>
+  <div class="form-group">
+    <input type="text" id="email" placeholder="Email" class="form-control" formControlEmail="email">
+    <span *ngIf="frmData.controls['email'].touched && frmData.controls['email'].errors?.requered">Es un valor requerido</span>
   </div>
-
-  <div class="">
-    <div>
-        <input name="password" placeholder="Contraseña">    
-    </div>
-    <div>
-      <label><input type="checkbox" name="isClient"> NO SOY CLIENTE VISANET</label>    
-    </div>
+  <div class="form-group">
+    <input type="text" id="dni" placeholder="DNI" class="form-control" formControlDNI="dni">
+    <span *ngIf="frmData.controls['dni'].touched && frmData.controls['dni'].errors?.requered">Es un valor requerido</span>
   </div>
+  <div class="form-group">
+    <input type="text" id="phone" placeholder="teléfono" class="form-control" formControlPhone="phone">
+    <span *ngIf="frmData.controls['phone'].touched && frmData.controls['phone'].errors?.requered">Es un valor requerido</span>
+  </div>
+  <div class="form-group">
+    <input type="text" id="ruc" placeholder="ruc" class="form-control" formControlRuc="ruc">
+    <span *ngIf="frmData.controls['ruc'].touched && frmData.controls['ruc'].errors?.requered">Es un valor requerido</span>
+  </div>
+  <div class="form-group">
+      <input type="text" id="password" placeholder="Password" class="form-control" formControlPassword="password">
+      <span *ngIf="frmData.controls['password'].touched && frmData.controls['password'].errors?.requered">Es un valor requerido</span>
+    </div>
+  <div class="form-group">
+    <label><input type="checkbox" name="isClient" [disabled]="form.invalid"> NO SOY CLIENTE VISANET</label>
+  </div>
+<<<<<<< HEAD:visanet/src/app/home/loan/enter-data/enter-data.component.html
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid">SUBMIT</button>
+=======
 
   <div class="">
     <button routerLink= "/loan/compare" > Solicitar</button>
+>>>>>>> f4d4a3d5e29da8d47ab0eb4dc45744c16e364b80:visanet/src/app/subpages/loan/enter-data/enter-data.component.html
   </div>
-</section>
+</form>
