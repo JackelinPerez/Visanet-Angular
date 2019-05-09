@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalService } from 'src/shared/local.service';
-
+ 
 @Component({
   selector: 'app-calculate',
   templateUrl: './calculate.component.html',
@@ -54,7 +54,12 @@ this.paymentSummary();
 }
  }
 
+
 sendLoanData(){
   this.localService.getLoanData(this.objInfLoan);
+  this.localService.getStatusData({calculate: '✓', data: '2', compare: '3', request: '4', set:'5'});
+
   }
 }
+
+
