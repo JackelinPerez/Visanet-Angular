@@ -7,3 +7,19 @@
 <input name="amount" type="number" value="{{amount}}">
 <button (click)="reduceQuantity()">-</button>
 
+<select (change) = "onChange($event.target.value)">
+  <option value="12"> 12 meses</option>
+  <option value="24">24 meses</option>
+  <option value="36">36 meses</option>
+  <option value="48">4 años</option>
+</select>
+
+
+<p>Debo pagar : {{calculateLoan()}}</p>
+<section>
+  <p>Monto: {{objInfLoan.amount}}</p>
+  <p>Interes: {{objInfLoan.interest}}</p>
+  <p> Total: {{objInfLoan.amount + objInfLoan.interest}}</p>
+  <p> Monthly: {{objInfLoan.monthlyPayment}}</p>
+
+</section>
