@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LocalService {
 
-  public calculateLoans = new BehaviorSubject({});
+  private calculateLoans = new BehaviorSubject({});
   calculateLoan = this.calculateLoans.asObservable();
 
   private statusLoan = new BehaviorSubject({calculate: '1', data: '2', compare: '3', request: '4', set:'5'});
@@ -18,6 +18,8 @@ export class LocalService {
   
   getLoanData(obj: Object){
     this.objLoanData= {...obj};
+    console.log(this.objLoanData);
+
     this.calculateLoans.next(this.objLoanData);
   }
   getStatusData(status: any){

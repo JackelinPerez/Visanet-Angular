@@ -9,87 +9,74 @@ import { LocalService } from 'src/shared/local.service';
 
 export class CompareComponent implements OnInit {
 
-  dataObj: {
+  months : number;
+  amount: number;
+  public objFinal:any ;
 
+  dataObj: {
   };
 
-  bussinessInfo = [
-    /*     {
+  businessInfo = [
+    {
           name: 'PRESTAMYPE',
           tcea: 12,
           img: '',
-          amount: 0,
-          monthlyPayment: 0,
-          interest: 0,
-          total: 0,
-    
          },
         {
           name: 'CAJA HUANCAYO',
           tcea: 20,
-          img: '',
-          amount: 0,
-          monthlyPayment: 0,
-          interest: 0,
-          total: 0,
-    
+          img: ''
         },
         {
           name: 'BCP',
           tcea: 20,
           img: '',
-          amount: 0,
-          monthlyPayment: 0,
-          interest: 0,
-          total: 0,
-    
+
         },
         {
           name: 'CAJA AREQUIPA',
           tcea: 25,
           img: '',
-          amount: 0,
-          monthlyPayment: 0,
-          interest: 0,
-          total: 0,
-        } */
+        }
   ];
 
+
   constructor(private localService: LocalService) {
-    this.localService.calculateLoans.subscribe(obj => {
-      
-  /*     this.bussinessInfo.push(
-        {
-          ...obj,
-          name: 'PRESTAMYPE',
-          tcea: 12,
-          img: '',
-        },
-        {
-          ...obj,
-          name: 'CAJA HUANCAYO',
-          tcea: 20,
-          img: '',
-        },
-        {
-          ...obj,
-          name: 'BCP',
-          tcea: 20,
-          img: '',
-        },
-        {
-          ...obj,
-          name: 'CAJA AREQUIPA',
-          tcea: 12,
-          img: ''
-        },
-
-      ); */
-    })
+    this.localService.calculateLoan.subscribe(obj => {
+    this.dataObj = {...obj};
+    this.objFinal = this.compare(obj, this.businessInfo);
+  });
   }
-
   ngOnInit() {
 
   }
+
+  onChangeCompare(mount, time){
+    const obj= {
+      amount: mount,
+      months: time,
+    }
+    this.objFinal = this.compare(obj, this.businessInfo);
+  }
+
+  addQuantity(amount){
+   return   amount += 1000;
+  }
+
+  compare(objServ, businnessArr){
+    return businnessArr.map(elem => {
+      const interest = objServ.amount*(elem.tcea*0.01)*(objServ.months/12);
+      const total = objServ.amount + interest;
+      const monthlyPayment = parseFloat((total/objServ.months).toFixed(2));
+      return {
+      ...elem,
+      amount: objServ.amount,
+      months: objServ.months,
+      interest,
+      total,
+      monthlyPayment
+    };
+  }
+  )}
 
 }
