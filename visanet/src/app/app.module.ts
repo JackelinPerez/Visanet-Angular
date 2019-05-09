@@ -21,6 +21,7 @@ import { NavbarComponent } from './home/navbar/navbar.component';
     LoanComponent,
     GrowthBusinessComponent,
     CalculateComponent,
+    ContactsNetworkComponent,
     EnterDataComponent,
     CompareComponent,
     RequestLoanComponent,
