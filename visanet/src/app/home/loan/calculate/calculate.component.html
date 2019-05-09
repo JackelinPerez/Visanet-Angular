@@ -1,3 +1,72 @@
-<p>
-  calculate works!
-</p>
+<section class="row info-emprededora">
+    <h1>Hola mujer emprendedora</h1>
+    <p>Te otorgamos un préstamo para que puedas seguir creciendo</p>
+      <div class="pasos">
+        <div class="pasitos">
+            <div class="circle">1</div>
+            <label>Calcula tu préstamo</label>
+        </div>
+        <div class="pasitos">
+            <div class="circle">2</div>
+            <label>Ingresa tus datos</label>
+        </div>
+        <div class="pasitos">
+            <div class="circle">3</div>
+            <label>Compara préstamos</label>
+        </div>
+        <div class="pasitos">
+            <div class="circle">4</div>
+            <label>Solicita tus préstamo</label>
+        </div>
+        <div class="pasitos">
+            <div class="circle">5</div>
+            <label>Recibe tu préstamo</label>
+        </div>
+      </div>
+  </section>
+  
+  <section class="calculate">
+    <div class="mount">
+      <label for="">¿Cuanto dinero necesitas?</label><br>
+      <button (click)="addQuantity()">+</button>
+      <span name="amount" type="number"> S/{{amount | number:'2.'}} </span>
+      <button (click)="reduceQuantity()">-</button>
+    </div>
+    <div class="time">
+      <label for="">¿Cuanto tiempo?</label><br>
+      <select name="" id="" (change) = "onChange($event.target.value)" >
+        <option value="12">12 Meses</option>
+        <option value="24">24 Meses</option>
+        <option value="36">36 Meses</option>
+        <option value="48">4 Años</option>
+        <option value="60">5 Años</option>
+      </select>
+    </div>
+    <div class="cuota">
+      <label for="">Debo pagar </label><br>
+      <label for="">{{calculateLoan() | currency:'S/ '}}</label><br>
+      <label for="">Mensuales</label>
+    </div>
+    <div class="summary">
+        <label for="">Resumen de Pago</label><br>
+        <section class="table-resumen">
+          <div>
+            <label for="">Prestamo</label><br>
+            <label for="">{{objInfLoan.amount  | number:'2.'}}</label>
+          </div>
+          <div class="signos">+</div>
+          <div>
+              <label for="">Intereses</label><br>
+              <label for="">{{objInfLoan.interest | number:'2.'}}</label>
+          </div>
+          <div class="signos">=</div>
+          <div>
+              <label for="">Total a pagar</label><br>
+              <label for="">{{objInfLoan.amount + objInfLoan.interest | number:'2.'}}</label>
+          </div>
+          <button routerLink= "/loan/enter-data" (click)= "sendLoanData()"> Solicitar préstamo</button>
+        </section>
+      </div>
+  </section>
+  
+
