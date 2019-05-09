@@ -31,8 +31,8 @@ export class CalculateComponent implements OnInit {
 /*     if (this.amount >= 1000) return this.amount -= 1000;
  */  }
   addQuantity(){
-    return this.amount += 1000;
-  }
+/*     return this.amount += 1000;
+ */  }
   sendLoanData(){
     return this.objInfLoan;
   }
