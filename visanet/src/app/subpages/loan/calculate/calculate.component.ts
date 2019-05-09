@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD:visanet/src/app/home/loan/calculate/calculate.component.ts
 import { LocalService } from 'src/app/shared/local.service';
 
+=======
+import { LocalService } from 'src/shared/local.service';
+ 
+>>>>>>> f4d4a3d5e29da8d47ab0eb4dc45744c16e364b80:visanet/src/app/subpages/loan/calculate/calculate.component.ts
 @Component({
   selector: 'app-calculate',
   templateUrl: './calculate.component.html',
@@ -54,8 +59,12 @@ this.paymentSummary();
 }
  }
 
+
 sendLoanData(){
   this.localService.getLoanData(this.objInfLoan);
-  
+  this.localService.getStatusData({calculate: '✓', data: '2', compare: '3', request: '4', set:'5'});
+
   }
 }
+
+

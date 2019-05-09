@@ -1,0 +1,61 @@
+<h3>¡FELICITACIONES <!-- {{name}} -->!</h3>
+<h4>TE OFRECEMOS LOS MEJORES PRÉSTAMOS PARA TI</h4>
+
+<div>
+  <span>FILTROS</span>
+</div>
+<div>
+  <label for="">BÚSQUEDA</label><br>
+  <label for=""></label>
+  <input type="text" placeholder="ENTIDAD">
+</div>
+
+<div>
+  <label for="">MONTO</label><br>
+  <label for=""></label>
+  <button (click)="addQuantity(dataObj.amount, dataObj.months)">+</button>
+  <span name="amount" type="number"> S/{{dataObj.amount | number:'2.'}} </span>
+  <button (click)="reduceQuantity()">-</button>
+</div>
+
+<div>
+  <label for="">TIEMPO</label><br>
+  <select value= "{{dataObj.months}}"name="" id="" (change)="onChangeCompare(dataObj.amount, $event.target.value)">
+    <option value="12">12 Meses</option>
+    <option value="24">24 Meses</option>
+    <option value="36">36 Meses</option>
+    <option value="48">4 Años</option>
+    <option value="60">5 Años</option>
+  </select>
+</div>
+
+<div *ngFor="let obj of objFinal">
+  <section>
+  <figure>
+    <figcaption> {{obj.name}}</figcaption>
+    <img src="">
+  </figure>
+
+  <div>
+    <label for="">TIENES UN PRÉSTAMO DE:</label><br>
+    <label for="">S/{{obj.amount  | number:'2.'}}</label>
+  </div>
+  <div>
+    <label for="">¿CUANTO VOY A PAGAR?</label><br>
+    <label for=""> S/ {{obj.monthlyPayment | number:'2.'}} mensuales </label>
+  </div>
+  <div>
+    <label for="">INTERESES</label><br>
+    <label for=""> S/{{obj.interest | number:'2.'}} a {{obj.months}} meses</label>
+  </div>
+  <div>
+      <label for="">MONTO TOTAL</label><br>
+      <label for="">S/{{obj.amount + obj.interest | number:'2.'}}</label>
+    </div>
+    <button>PIDE TU PRÉSTAMO</button>
+  <a>ver más</a>
+  <p>TCEA : {{obj.tcea}}%</p>
+</section>
+</div>
+
+
