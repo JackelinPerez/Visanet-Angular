@@ -1,3 +1,42 @@
-<p>
-  enter-data works!
-</p>
+<section class="row info-emprededora">
+  <h2>INGRESA TUS DATOS</h2>
+  <div class="">
+    <div>
+        <input name="first-name" placeholder="Nombre">    
+    </div>
+    <div>
+      <input name="last-name" placeholder="Apellido">    
+    </div>
+  </div>
+
+  <div class="">
+    <div>
+        <input name="email" placeholder="Email">    
+    </div>
+    <div>
+      <input name="DNI" placeholder="DNI">    
+    </div>
+  </div>
+
+  <div class="">
+    <div>
+        <input name="phone" placeholder="Celular">    
+    </div>
+    <div>
+      <input name="RUC" placeholder="RUC">    
+    </div>
+  </div>
+
+  <div class="">
+    <div>
+        <input name="password" placeholder="Contraseña">    
+    </div>
+    <div>
+      <label><input type="checkbox" name="isClient"> NO SOY CLIENTE VISANET</label>    
+    </div>
+  </div>
+
+  <div class="">
+    <button (click)= "sendPersonalData()"> Solicitar</button>
+  </div>
+</section>
