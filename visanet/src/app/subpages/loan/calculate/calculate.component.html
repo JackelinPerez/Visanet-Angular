@@ -1,40 +1,42 @@
 <section class="row info-emprededora">
-    <h1>Hola mujer emprendedora</h1>
-    <p>Te otorgamos un préstamo para que puedas seguir creciendo</p>
+    <h1 class="text-1 col-lg-6 col-md-7 col-sm-10">HOLA MUJER EMPRENDEDORA,</h1>
+    <p class="text-steps col-lg-8 col-md-8 col-sm-10">Te otorgamos un préstamo para que puedas seguir creciendo</p>
       <div class="pasos">
         <div class="pasitos">
-            <div class="circle">1</div>
-            <label>Calcula tu préstamo</label>
+            <div class="circle circle-color">1</div>
+            <label class="label-steps text-choose">Calcula tu préstamo</label>
         </div>
         <div class="pasitos">
             <div class="circle">2</div>
-            <label>Ingresa tus datos</label>
+            <label class="label-steps">Ingresa tus datos</label>
         </div>
         <div class="pasitos">
             <div class="circle">3</div>
-            <label>Compara préstamos</label>
+            <label class="label-steps">Compara préstamos</label>
         </div>
         <div class="pasitos">
             <div class="circle">4</div>
-            <label>Solicita tus préstamo</label>
+            <label class="label-steps">Solicita tus préstamo</label>
         </div>
         <div class="pasitos">
             <div class="circle">5</div>
-            <label>Recibe tu préstamo</label>
+            <label class="label-steps">Recibe tu préstamo</label>
         </div>
       </div>
   </section>
   
-  <section class="calculate">
-    <div class="mount">
-      <label for="">¿Cuanto dinero necesitas?</label><br>
-      <button (click)="addQuantity()">+</button>
-      <span name="amount" type="number"> S/{{amount | number:'2.'}} </span>
-      <button (click)="reduceQuantity()">-</button>
+  <section class="container">
+    <h1 class="text-calculate">Calcula tu Préstamo</h1>
+    <div class="row">
+    <div class="mount col-md-3 col-lg-3">
+      <label for="" class="text-summary">¿Cuanto dinero necesitas?</label><br>
+      <button (click)="addQuantity()" class="btn-more">+</button>
+      <span name="amount" type="number" class="input-text margin-input"> S/{{amount | number:'2.'}} </span>
+      <button (click)="reduceQuantity()" class="btn-more">-</button>
     </div>
-    <div class="time">
-      <label for="">¿Cuanto tiempo?</label><br>
-      <select name="" id="" (change) = "onChange($event.target.value)" >
+    <div class="time col-md-2 col-lg-2">
+      <label for="" class="text-summary">¿Cuanto tiempo?</label><br>
+      <select name="" id="" (change) = "onChange($event.target.value)" class="input-text border">
         <option value="12">12 Meses</option>
         <option value="24">24 Meses</option>
         <option value="36">36 Meses</option>
@@ -42,31 +44,72 @@
         <option value="60">5 Años</option>
       </select>
     </div>
-    <div class="cuota">
-      <label for="">Debo pagar </label><br>
-      <label for="">{{calculateLoanData() | currency:'S/ '}}</label><br>
+    <div class="cuota col-md-3 col-lg-3">
+      <label for="" class="text-summary">Debo pagar </label><br>
+      <label for="" class="text-secundary">{{calculateLoanData() | currency:'S/ '}}</label><br>
       <label for="">Mensuales</label>
     </div>
-    <div class="summary">
-        <label for="">Resumen de Pago</label><br>
-        <section class="table-resumen">
-          <div>
+    <div class="summary col-md-4 col-lg-4">
+        <label for="" class="text-summary">Resumen de Pago</label><br>
+        <section class="table-resumen table-total">
+          <div class="col-3">
             <label for="">Prestamo</label><br>
-            <label for="">{{objInfLoan.amount  | number:'2.'}}</label>
+            <label for="" class="count">{{objInfLoan.amount  | number:'2.'}}</label>
           </div>
-          <div class="signos">+</div>
-          <div>
+          <div class="signos col-1">+</div>
+          <div class="col-3">
               <label for="">Intereses</label><br>
-              <label for="">{{objInfLoan.interest | number:'2.'}}</label>
+              <label for="" class="count">{{objInfLoan.interest | number:'2.'}}</label>
           </div>
-          <div class="signos">=</div>
-          <div>
+          <div class="signos col-1">=</div>
+          <div class="col-4">
               <label for="">Total a pagar</label><br>
               <label for="">{{objInfLoan.amount + objInfLoan.interest | number:'2.'}}</label>
           </div>
-          <button routerLink= "/loan/enter-data" (click)= "sendLoanData()"> Solicitar préstamo</button>
         </section>
+        <button routerLink= "/loan/enter-data" (click)= "sendLoanData()" class="btn-request"> SOLICITAR PRÉSTAMO</button>
       </div>
+    </div>
+    <h3 class="text-2">Préstamo basado en TCEA 12%</h3>
+    <h3 class="text-1">IMPORTANTE</h3>
+    <p class="box-pharagrahp col-lg-5 col-md-7 col-sm-10">El préstamo será otrogado por la entidad financiera elegida. Juntas y VisaNet
+    no es responsable de la gestión del crédito.</p>
+    <div class="container">
+      <h1 class="style-title">¿Qué necesito para solicitar mi prestamo?</h1>
+      <div class="row center-2">
+        <article class="box-article col-4 col-lg-4 col-md-4 col-sm-8">
+          <h2 class="text-1 color-text">REQUISITOS</h2>
+           <ul>
+             <li>Ser mayor de 18 años</li>
+             <li>Recibo de agua y luz</li>
+             <li>DNI de la solicitante y copia</li>
+           </ul>
+        </article>
+        <article class="box-article col-4 col-lg-4 col-md-4 col-sm-8">
+          <h2 class="text-1 color-text">BENEFICIOS</h2>
+          <ul>
+            <li>Facilidades en canales de cobro</li>
+            <li>Rápido y sin tanto papeleo</li>
+            <li>Tus ventas con VISA son el sustento crediticio</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+    <section class="container">
+      <h2 class="style-title">¿Cómo me entregarán mi dinero?</h2>
+      <div class="row center-2">
+      <article class="col-4 col-lg-4 col-md-4 col-sm-8">
+        <img class="img-card" src="../../../../assets/img/oro-3.JPG" alt="">
+        <h2 class="style-article">NOS CONTACTAREMOS</h2>
+        <p class="style-card">Nos pondremos en contacto contigo dentro de las 24 hrs.</p>
+      </article>
+      <article class="col-4 col-lg-4 col-md-4 col-sm-8">
+        <img class="img-card" src="../../../../assets/img/oro-4.JPG" alt="">
+        <h2 class="style-article">TE ENTREGAMOS TU DINERO</h2>
+        <p class="style-card">Recibiras tu desembolso en 48 hrs.</p>
+      </article>
+    </div>
+    </section>
   </section>
   
 
