@@ -63,7 +63,6 @@ this.paymentSummary();
   sendLoanData(){
     this.localService.getLoanData(this.objInfLoan);
     this.localService.getStatusData({calculate: '✓', data: '2', compare: '3', request: '4', set:'5'});
-   
     }
 }
 

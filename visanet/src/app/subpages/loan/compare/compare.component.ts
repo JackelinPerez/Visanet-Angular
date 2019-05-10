@@ -79,5 +79,9 @@ export class CompareComponent implements OnInit {
     }
     )
   }
+  sendLoan(arr){
+    console.log(arr)
+    this.localService.getLoanFinal(arr);
+  }
 
 }

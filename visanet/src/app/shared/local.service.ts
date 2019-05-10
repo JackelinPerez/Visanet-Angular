@@ -12,7 +12,11 @@ export class LocalService {
   private calculateLoans = new BehaviorSubject({});
   calculateLoan = this.calculateLoans.asObservable();
 
+  private finalLoans = new BehaviorSubject([]);
+  finalLoan = this.finalLoans.asObservable();
+
   objLoanData: {};
+  arrLoanFinal : any;
 
   constructor() { }
 
@@ -22,6 +26,12 @@ export class LocalService {
   console.log(this.objLoanData)
   this.calculateLoans.next(this.objLoanData);
   }
+
+  getLoanFinal(arr){
+    this.arrLoanFinal = arr;
+    this.finalLoans.next(this.arrLoanFinal);
+  }
+
   getStatusData(status: any){
     this.statusLoan.next(status);
   }

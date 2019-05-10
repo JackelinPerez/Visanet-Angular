@@ -1,3 +1,30 @@
-<p>
-  get-loan works!
-</p>
+<img class="bank-logo" src="{{infoLoan.img}}">
+
+<h3 class="congrats">¡YA FALTA POCO PARA RECIBIR TU PRÉSTAMO!</h3>
+
+<label for="" class="text-summary">Cuota</label><br>
+<section class="table-resumen table-total">
+  <div class="col-3">
+    <label for="" class="count">{{infoLoan.amount  | number:'2.'}}</label><br>
+    <label for="">mensuales</label><br>
+
+  </div>
+</section>
+
+<label for="" class="text-summary">Resumen de Pago</label><br>
+<section class="table-resumen table-total">
+  <div class="col-3">
+    <label for="">Prestamo</label><br>
+    <label for="" class="count">{{infoLoan.amount  | number:'2.'}}</label>
+  </div>
+  <div class="signos col-1">+</div>
+  <div class="col-3">
+      <label for="">Intereses</label><br>
+      <label for="" class="count">{{infoLoan.interest | number:'2.'}}</label>
+  </div>
+  <div class="signos col-1">=</div>
+  <div class="col-4">
+      <label for="">Total a pagar</label><br>
+      <label for="">{{infoLoan.amount + infoLoan.interest | number:'2.'}}</label>
+  </div>
+</section>
