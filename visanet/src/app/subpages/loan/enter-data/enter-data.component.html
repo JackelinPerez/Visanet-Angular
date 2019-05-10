@@ -1,18 +1,6 @@
-<!-- <form (ngSubmit)="onSubmit(projectForm)" #projectForm="ngForm" class="form-horizontal"> -->
-<!-- <form #frm="ngForm" (submit)="onSubmit(frm)">
-  <input name="nameFirst" #nameFirst="ngModel"  placeholder="Nombre" required> -->
-  <!-- <input name="lastName" #lastName="ngModel"  placeholder="Apellido" required>
-  <input name="email" #email="ngModel"  placeholder="Email" required>
-  <input name="dni" #dni="ngModel" placeholder="DNI" required> -->
-  <!-- <input name="phone" #phone="ngModel" [(ngModel)]="service.formData.phone" placeholder="Teléfono" required>
-  <input name="ruc" #ruc="ngModel" [(ngModel)]="service.formData.ruc" placeholder="RUC" required>
-  <input name="password" #password="ngModel" [(ngModel)]="service.formData.password" type="password" placeholder="Contraseña" required> -->
-  <!-- <input  name="password" #password="ngModel" [(ngModel)]="service.formData.password" placeholder="Contraseña" required> -->
-  <!-- <label><input type="checkbox" name="isClient" [disabled]="form.invalid"> NO SOY CLIENTE VISANET</label> -->
-  <!-- <button> Solicitar</button>
-</form> -->
+
  <form [formGroup]="frmData" autocomplete="off" (submit)="sendPersonalData(form)">
-  <div class="form-group">
+<!--   <div class="form-group">
     <input type="text" id="nameFirst" placeholder="Nombre" class="form-control" formControlFirstnameFirstName="nameFirst">
     <span *ngIf="frmData.controls['nameFirst'].touched && frmData.controls['nameFirst'].errors?.requered">Es un valor requerido</span>
   </div>
@@ -43,13 +31,8 @@
   <div class="form-group">
     <label><input type="checkbox" name="isClient" [disabled]="form.invalid"> NO SOY CLIENTE VISANET</label>
   </div>
-
-<<<<<<< HEAD
-  <div class="form-group">
-    <button type="submit" [disabled]="form.invalid" routerLink= "/loan/compare" > Solicitar</button>
-=======
+ -->
   <div class="">
     <button routerLink="/subpages/loan/compare"  (click)= "sendPersonalData()"> Solicitar</button>
->>>>>>> 32784ed4d1ca130f1248f54de50a87a1637f18f3
   </div>
 </form>

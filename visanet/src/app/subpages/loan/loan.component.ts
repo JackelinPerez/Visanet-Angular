@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalService } from 'src/app/shared/local.service';
 //observando el estado del router Loan
-import { LocalService} from '../../../shared/local.service';
 
 @Component({
   selector: 'app-loan',

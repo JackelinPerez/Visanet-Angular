@@ -15,6 +15,7 @@ export class LocalService {
   objLoanData: {};
 
   constructor() { }
+
   
   getLoanData(obj: Object){
     this.objLoanData= {...obj};
