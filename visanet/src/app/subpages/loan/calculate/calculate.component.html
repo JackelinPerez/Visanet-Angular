@@ -44,7 +44,7 @@
     </div>
     <div class="cuota">
       <label for="">Debo pagar </label><br>
-      <label for="">{{calculateLoanData() | currency:'S/ '}}</label><br>
+      <label for="">{{calculateLoan() | currency:'S/ '}}</label><br>
       <label for="">Mensuales</label>
     </div>
     <div class="summary">
@@ -64,7 +64,7 @@
               <label for="">Total a pagar</label><br>
               <label for="">{{objInfLoan.amount + objInfLoan.interest | number:'2.'}}</label>
           </div>
-          <button routerLink= "/loan/enter-data" (click)= "sendLoanData()"> Solicitar préstamo</button>
+          <button routerLink= "/enter-data" (click)= "sendLoanData()"> Solicitar préstamo</button>
         </section>
       </div>
   </section>
