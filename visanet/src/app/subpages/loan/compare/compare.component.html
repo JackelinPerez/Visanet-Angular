@@ -22,3 +22,85 @@
     </div>
   </div>
 </section>
+
+<h3 class="congrats">¡FELICITACIONES
+  <!-- {{name}} -->!</h3>
+<h4>TE OFRECEMOS LOS MEJORES PRÉSTAMOS PARA TI</h4>
+
+<div class="info-container">
+  <div class="filter-container grey">
+    <span>FILTROS</span>
+  </div>
+
+  <section class="d-flex flex-row justify-content-around align-items-center search-container">
+    <div>
+      <label class="light-font" for="">BÚSQUEDA</label><br>
+      <div class="inner-addon left-addon">
+        <input type="text" placeholder="ENTIDAD">
+        <img src="../../../../assets/img/search.png" class="glyphicon glyphicon glyphicons">
+      </div>
+    </div>
+
+    <div>
+      <label class="light-font" for="">MONTO</label><br>
+      <div class="add-container">
+        <button class="btn-more" (click)="addQuantity(dataObj.amount, dataObj.months)">+</button>
+        <span class="grey input-number"> S/{{dataObj.amount | number:'2.'}} </span>
+        <button class="btn-more" (click)="reduceQuantity()">-</button>
+      </div>
+    </div>
+
+    <div>
+      <label class="light-font" for="">TIEMPO</label><br>
+      <select class="grey" value="{{dataObj.months}}" name="" id=""
+        (change)="onChangeCompare(dataObj.amount, $event.target.value)">
+        <option value="12">12 Meses</option>
+        <option value="24">24 Meses</option>
+        <option value="36">36 Meses</option>
+        <option value="48">4 Años</option>
+        <option value="60">5 Años</option>
+      </select>
+    </div>
+  </section>
+</div>
+
+
+<div *ngFor="let obj of objFinal">
+  <section class=" d-flex flex-row justify-content-around align-items-center bank-container">
+
+    <figure class="d-flex col-lg-2 col-md-2 col-sm-3 justify-content-center align-items-center">
+      <figcaption class="light-font col-12"> {{obj.name}}</figcaption>
+      <img class="bank-logo" src="{{obj.img}}">
+    </figure>
+
+    <div class="d-flex col-lg-2 col-md-2 col-sm-3 justify-content-center align-items-center">
+      <label class="light-font" for="">TIENES UN PRÉSTAMO DE:</label><br>
+      <label for="">S/{{obj.amount  | number:'2.'}}</label>
+      <p><strong class="light-font tcea"> TCEA: {{obj.tcea}}%</strong></p>
+    </div>
+    <div class="d-flex col-lg-2 col-md-2 col-sm-3 justify-content-center align-items-center">
+      <label class="light-font" for="">¿CUANTO VOY A PAGAR?</label><br>
+      <label for=""> S/ {{obj.monthlyPayment | number:'2.'}}</label>
+      <label for="" class="light-font">mensuales </label>
+
+    </div>
+    <div class="d-flex col-lg-2 col-md-2 col-sm-3 justify-content-center align-items-center">
+      <label class="light-font" for="">INTERESES</label><br>
+      <label for=""> S/{{obj.interest | number:'2.'}}</label>
+      <label class="light-font" for=""> a {{obj.months}}</label>
+
+      <label class="light-font" for="">meses</label>
+
+    </div>
+    <div class="d-flex col-lg-2 col-md-2 col-sm-3 justify-content-center align-items-center">
+      <label class="light-font" for="">MONTO TOTAL</label><br>
+      <label for="">S/{{obj.amount + obj.interest | number:'2.'}}</label>
+    </div>
+
+    <div class="d-flex col-lg-2 col-md-2 col-sm-3 justify-content-center align-items-center yellow">
+      <button class="loan-reques-btn">PIDE TU PRÉSTAMO</button>
+      <a href="#">ver más</a>
+    </div>
+
+  </section>
+</div>

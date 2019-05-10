@@ -25,43 +25,48 @@
 
 <section class="row info-emprededora">
   <h2>INGRESA TUS DATOS</h2>
-  <div class="">
-    <div>
-        <input name="first-name" placeholder="Nombre">    
+  <form [formGroup]="frmData" autocomplete="off" (submit)="sendPersonalData(frmData)">
+    <div class="form-group">
+      <input type="text" id="nameFirst" placeholder="Nombre" class="form-control" formControlName="nameFirst">
+      <span *ngIf="frmData.controls['nameFirst'].touched && frmData.controls['nameFirst'].errors?.requered">Es un valor requerido</span>
     </div>
-    <div>
-      <input name="last-name" placeholder="Apellido">    
+    <div class="form-group">
+      <input type="text" id="nameLast" placeholder="Apellido" class="form-control" formControlName="nameLast">
+      <span *ngIf="frmData.controls['nameLast'].touched && frmData.controls['nameLast'].errors?.requered">Es un valor requerido</span>
     </div>
-  </div>
-
-  <div class="">
-    <div>
-        <input name="email" placeholder="Email">    
+    <div class="form-group">
+      <input type="text" id="email" placeholder="Email" class="form-control" formControlName="email">
+      <span *ngIf="frmData.controls['email'].touched && frmData.controls['email'].errors?.requered">Es un valor requerido</span>
     </div>
-    <div>
-      <input name="DNI" placeholder="DNI">    
+    <div class="form-group">
+      <input type="text" id="dni" placeholder="DNI" class="form-control" formControlName="dni">
+      <span *ngIf="frmData.controls['dni'].touched && frmData.controls['dni'].errors?.requered">Es un valor requerido</span>
     </div>
-  </div>
-
-  <div class="">
-    <div>
-        <input name="phone" placeholder="Celular">    
+    <div class="form-group">
+      <input type="text" id="phone" placeholder="teléfono" class="form-control" formControlName="phone">
+      <span *ngIf="frmData.controls['phone'].touched && frmData.controls['phone'].errors?.requered">Es un valor requerido</span>
     </div>
-    <div>
-      <input name="RUC" placeholder="RUC">    
+    <div class="form-group">
+      <input type="text" id="ruc" placeholder="ruc" class="form-control" formControlName="ruc">
+      <span *ngIf="frmData.controls['ruc'].touched && frmData.controls['ruc'].errors?.requered">Es un valor requerido</span>
     </div>
-  </div>
-
-  <div class="">
-    <div>
-        <input name="password" placeholder="Contraseña">    
+    <div class="form-group">
+      <input type="text" id="cod" placeholder="Código del Cliente VisaNet" class="form-control" formControlName="cod">
+      <span *ngIf="frmData.controls['cod'].touched && frmData.controls['cod'].errors?.requered">Es un valor requerido</span>
     </div>
-    <div>
-      <label><input type="checkbox" name="isClient"> NO SOY CLIENTE VISANET</label>    
+    <div class="form-group">
+      <input type="text" id="rubro" placeholder="Robro Comercial" class="form-control" formControlName="rubro">
+      <span *ngIf="frmData.controls['rubro'].touched && frmData.controls['rubro'].errors?.requered">Es un valor requerido</span>
     </div>
-  </div>
-
-  <div class="">
-    <button routerLink="/subpages/loan/compare"  (click)= "sendPersonalData()"> Solicitar</button>
-  </div>
+    <div class="form-group">
+        <input type="password" id="password" placeholder="Password" class="form-control">
+        <span *ngIf="frmData.controls['password'].touched && frmData.controls['password'].errors?.requered">Es un valor requerido</span>
+      </div>
+    <div class="form-group">
+      <label><input type="checkbox" name="isClient"> NO SOY CLIENTE VISANET</label>
+    </div>
+    <div class="form-group">
+      <button type="submit" routerLink="/subpages/loan/compare">SOLICITAR</button>
+    </div>
+  </form>
 </section>
