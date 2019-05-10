@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalService } from 'src/shared/local.service';
+import { LocalService } from 'src/app/shared/local.service';
 
 @Component({
   selector: 'app-compare',

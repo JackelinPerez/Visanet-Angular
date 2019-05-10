@@ -44,7 +44,12 @@
     <label><input type="checkbox" name="isClient" [disabled]="form.invalid"> NO SOY CLIENTE VISANET</label>
   </div>
 
+<<<<<<< HEAD
   <div class="form-group">
     <button type="submit" [disabled]="form.invalid" routerLink= "/loan/compare" > Solicitar</button>
+=======
+  <div class="">
+    <button routerLink="/subpages/loan/compare"  (click)= "sendPersonalData()"> Solicitar</button>
+>>>>>>> 32784ed4d1ca130f1248f54de50a87a1637f18f3
   </div>
 </form>

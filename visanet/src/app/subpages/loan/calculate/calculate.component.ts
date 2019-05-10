@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalService } from 'src/app/shared/local.service';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-calculate',
@@ -19,7 +20,7 @@ export class CalculateComponent implements OnInit {
     monthlyPayment: 933.33
   };
 
-  constructor(private localService: LocalService) { }
+  constructor(private localService: LocalService, private router: Router) { }
 
   ngOnInit() {
 }
@@ -47,19 +48,23 @@ if (this.amount > 1000) {
  this.paymentSummary();
  }
 }
-  addQuantity(){
+addQuantity(){
 if(this.amount < 50000) {
 this.amount += 1000;
 this.paymentSummary();
 }
  }
 
+// sendLoanData(){
+//   this.localService.getLoanData(this.objInfLoan);
+//   this.router.navigateByUrl('enter-data');
+//   }
 
-sendLoanData(){
-  this.localService.getLoanData(this.objInfLoan);
-  this.localService.getStatusData({calculate: '✓', data: '2', compare: '3', request: '4', set:'5'});
-
-  }
+  sendLoanData(){
+    this.localService.getLoanData(this.objInfLoan);
+    this.localService.getStatusData({calculate: '✓', data: '2', compare: '3', request: '4', set:'5'});
+   
+    }
 }
 
 
